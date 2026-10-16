@@ -3,4 +3,5 @@ dist/
 .inline-build/
 .env
 .env.*
+!.env.example
 *.log
