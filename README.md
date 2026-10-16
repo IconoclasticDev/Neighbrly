@@ -15,6 +15,7 @@ A working demonstration of evidence-led neighbourhood reports, using the approve
 - Android: on-device quiz weights and saved locality bookmarks, native text share sheet, safe-area padding, explicit missing price/promoter screens, Leaflet marker → native report navigation.
 - FastAPI demo service with `/health`, `/v1/areas`, GET/POST `/v1/quiz`, POST `/v1/report`, POST `/v1/compare`, request validation and a deterministic claim validator.
 - In-chat preview is built from the same React app. The Android-layout switch previews responsive behavior, not a running Android emulator. Native Android screens have a simpler layout than the web app.
+- **System Architecture & Interaction Flow**: See [FLOW_STRUCTURE.md](file:///c:/Users/ACER%20NITRO%20V%2015/OneDrive/Desktop/Neighbrly/Neighbrly/FLOW_STRUCTURE.md) for the complete screen-by-screen flow, interaction logic, and system rationales.
 
 ## Start the web app
 
