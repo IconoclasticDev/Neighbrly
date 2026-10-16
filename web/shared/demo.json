@@ -1,0 +1,395 @@
+{
+  "metrics": [
+    {
+      "id": "air",
+      "label": "Air quality",
+      "blurb": "Typical particulate levels, as a percentile among Mumbai areas.",
+      "verify": "Visit at rush hour and check for dust, traffic smoke and industrial smell."
+    },
+    {
+      "id": "transit",
+      "label": "Transit access",
+      "blurb": "Distance and frequency of rail, metro and bus links.",
+      "verify": "Time the real walk to the nearest station at peak hours."
+    },
+    {
+      "id": "schools",
+      "label": "Schools nearby",
+      "blurb": "Count and infrastructure of schools within reach.",
+      "verify": "Visit the two nearest schools and ask about admission and fees."
+    },
+    {
+      "id": "safety",
+      "label": "Safety proxies",
+      "blurb": "Street lighting plus police and hospital proximity. Not a crime rate.",
+      "verify": "Walk the area after dark and ask residents about night-time safety."
+    },
+    {
+      "id": "delivery",
+      "label": "Builder delivery record",
+      "blurb": "Delay and complaint history across a promoter’s RERA projects.",
+      "verify": "Read the RERA complaint list for this promoter before booking."
+    },
+    {
+      "id": "green",
+      "label": "Green cover",
+      "blurb": "Tree cover and open space around the location.",
+      "verify": "Check how much open space is protected versus planned for construction."
+    },
+    {
+      "id": "value",
+      "label": "Price value",
+      "blurb": "Asking price compared with registered deals nearby.",
+      "verify": "Ask for recent registered sale deeds in the same building or lane."
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which matters more to you?",
+      "a": {
+        "label": "A short commute",
+        "m": "transit"
+      },
+      "b": {
+        "label": "Lots of greenery",
+        "m": "green"
+      }
+    },
+    {
+      "q": "Which would you pay more for?",
+      "a": {
+        "label": "Good schools nearby",
+        "m": "schools"
+      },
+      "b": {
+        "label": "A lower price",
+        "m": "value"
+      }
+    },
+    {
+      "q": "Which risk worries you more?",
+      "a": {
+        "label": "A builder who delivers late",
+        "m": "delivery"
+      },
+      "b": {
+        "label": "Overpaying",
+        "m": "value"
+      }
+    },
+    {
+      "q": "Which would you rather have?",
+      "a": {
+        "label": "Feeling safe at night",
+        "m": "safety"
+      },
+      "b": {
+        "label": "Quick station access",
+        "m": "transit"
+      }
+    },
+    {
+      "q": "Which is the bigger deal?",
+      "a": {
+        "label": "Clean air",
+        "m": "air"
+      },
+      "b": {
+        "label": "Strong schools",
+        "m": "schools"
+      }
+    },
+    {
+      "q": "Which is harder to accept?",
+      "a": {
+        "label": "A builder who delivers late",
+        "m": "delivery"
+      },
+      "b": {
+        "label": "Unhealthy air",
+        "m": "air"
+      }
+    },
+    {
+      "q": "Which do you value more?",
+      "a": {
+        "label": "Open green space",
+        "m": "green"
+      },
+      "b": {
+        "label": "Safety around the block",
+        "m": "safety"
+      }
+    }
+  ],
+  "areas": [
+    {
+      "id": "a",
+      "name": "Demo Locality A",
+      "tagline": "Eastern suburb, near rail",
+      "entries": {
+        "air": {
+          "value": 62,
+          "raw": "Average AQI 96",
+          "coverage": "90% of area",
+          "note": "",
+          "ref": 1,
+          "source": "Invented demonstration dataset",
+          "date": "2026-10-01",
+          "demo": true
+        },
+        "transit": {
+          "value": 82,
+          "raw": "0.8 km to station",
+          "coverage": "90% of area",
+          "note": "",
+          "ref": 2,
+          "source": "Invented demonstration dataset",
+          "date": "2026-10-01",
+          "demo": true
+        },
+        "schools": {
+          "value": 71,
+          "raw": "11 schools in 2 km",
+          "coverage": "90% of area",
+          "note": "",
+          "ref": 3,
+          "source": "Invented demonstration dataset",
+          "date": "2026-10-01",
+          "demo": true
+        },
+        "safety": {
+          "value": 58,
+          "raw": "Lighting 61% of streets",
+          "coverage": "90% of area",
+          "note": "",
+          "ref": 4,
+          "source": "Invented demonstration dataset",
+          "date": "2026-10-01",
+          "demo": true
+        },
+        "delivery": {
+          "value": 47,
+          "raw": "2 of 5 projects delayed",
+          "coverage": "90% of area",
+          "note": "",
+          "ref": 5,
+          "source": "Invented demonstration dataset",
+          "date": "2026-10-01",
+          "demo": true
+        },
+        "green": {
+          "value": 55,
+          "raw": "Tree cover 14%",
+          "coverage": "90% of area",
+          "note": "",
+          "ref": 6,
+          "source": "Invented demonstration dataset",
+          "date": "2026-10-01",
+          "demo": true
+        },
+        "value": {
+          "value": null,
+          "raw": "No data yet",
+          "coverage": "none",
+          "note": "Not enough registered deals nearby yet.",
+          "ref": 7,
+          "source": "Invented demonstration dataset",
+          "date": "2026-10-01",
+          "demo": true
+        }
+      },
+      "price": null,
+      "promoter": {
+        "name": "Demo Promoter 1",
+        "projects": 5,
+        "delayed": 2,
+        "avgDelayMonths": 11,
+        "complaints": 7
+      },
+      "lat": 19.064,
+      "lng": 72.897,
+      "letter": "A"
+    },
+    {
+      "id": "b",
+      "name": "Demo Locality B",
+      "tagline": "Lakeside, newer towers",
+      "entries": {
+        "air": {
+          "value": 74,
+          "raw": "Average AQI 71",
+          "coverage": "90% of area",
+          "note": "",
+          "ref": 1,
+          "source": "Invented demonstration dataset",
+          "date": "2026-10-01",
+          "demo": true
+        },
+        "transit": {
+          "value": 55,
+          "raw": "2.4 km to metro",
+          "coverage": "90% of area",
+          "note": "",
+          "ref": 2,
+          "source": "Invented demonstration dataset",
+          "date": "2026-10-01",
+          "demo": true
+        },
+        "schools": {
+          "value": 84,
+          "raw": "16 schools in 2 km",
+          "coverage": "90% of area",
+          "note": "",
+          "ref": 3,
+          "source": "Invented demonstration dataset",
+          "date": "2026-10-01",
+          "demo": true
+        },
+        "safety": {
+          "value": 76,
+          "raw": "Lighting 83% of streets",
+          "coverage": "90% of area",
+          "note": "",
+          "ref": 4,
+          "source": "Invented demonstration dataset",
+          "date": "2026-10-01",
+          "demo": true
+        },
+        "delivery": {
+          "value": 71,
+          "raw": "1 of 6 projects delayed",
+          "coverage": "90% of area",
+          "note": "",
+          "ref": 5,
+          "source": "Invented demonstration dataset",
+          "date": "2026-10-01",
+          "demo": true
+        },
+        "green": {
+          "value": 80,
+          "raw": "Tree cover 27%",
+          "coverage": "90% of area",
+          "note": "",
+          "ref": 6,
+          "source": "Invented demonstration dataset",
+          "date": "2026-10-01",
+          "demo": true
+        },
+        "value": {
+          "value": 52,
+          "raw": "Asking about 9% above median",
+          "coverage": "90% of area",
+          "note": "",
+          "ref": 7,
+          "source": "Invented demonstration dataset",
+          "date": "2026-10-01",
+          "demo": true
+        }
+      },
+      "price": {
+        "asking": 21800,
+        "median": 20000,
+        "deals": 61,
+        "period": "last 12 months"
+      },
+      "promoter": {
+        "name": "Demo Promoter 2",
+        "projects": 6,
+        "delayed": 1,
+        "avgDelayMonths": 5,
+        "complaints": 2
+      },
+      "lat": 19.118,
+      "lng": 72.905,
+      "letter": "B"
+    },
+    {
+      "id": "c",
+      "name": "Demo Locality C",
+      "tagline": "Old neighbourhood, central",
+      "entries": {
+        "air": {
+          "value": 48,
+          "raw": "Average AQI 128",
+          "coverage": "90% of area",
+          "note": "",
+          "ref": 1,
+          "source": "Invented demonstration dataset",
+          "date": "2026-10-01",
+          "demo": true
+        },
+        "transit": {
+          "value": 91,
+          "raw": "0.4 km to station",
+          "coverage": "90% of area",
+          "note": "",
+          "ref": 2,
+          "source": "Invented demonstration dataset",
+          "date": "2026-10-01",
+          "demo": true
+        },
+        "schools": {
+          "value": 66,
+          "raw": "9 schools in 2 km",
+          "coverage": "90% of area",
+          "note": "",
+          "ref": 3,
+          "source": "Invented demonstration dataset",
+          "date": "2026-10-01",
+          "demo": true
+        },
+        "safety": {
+          "value": 64,
+          "raw": "Lighting 70% of streets",
+          "coverage": "90% of area",
+          "note": "",
+          "ref": 4,
+          "source": "Invented demonstration dataset",
+          "date": "2026-10-01",
+          "demo": true
+        },
+        "delivery": {
+          "value": null,
+          "raw": "No data yet",
+          "coverage": "none",
+          "note": "Promoter data not matched to this project.",
+          "ref": 5,
+          "source": "Invented demonstration dataset",
+          "date": "2026-10-01",
+          "demo": true
+        },
+        "green": {
+          "value": 30,
+          "raw": "Tree cover 6%",
+          "coverage": "90% of area",
+          "note": "",
+          "ref": 6,
+          "source": "Invented demonstration dataset",
+          "date": "2026-10-01",
+          "demo": true
+        },
+        "value": {
+          "value": 63,
+          "raw": "Asking about 4% above median",
+          "coverage": "90% of area",
+          "note": "",
+          "ref": 7,
+          "source": "Invented demonstration dataset",
+          "date": "2026-10-01",
+          "demo": true
+        }
+      },
+      "price": {
+        "asking": 31500,
+        "median": 30300,
+        "deals": 112,
+        "period": "last 12 months"
+      },
+      "promoter": null,
+      "lat": 19.021,
+      "lng": 72.852,
+      "letter": "C"
+    }
+  ]
+}

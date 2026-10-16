@@ -1,0 +1,11 @@
+import data from '../../shared/demo.json';
+import type {Area as SharedArea} from '../../shared/core';
+export type MetricId='air'|'transit'|'schools'|'safety'|'delivery'|'green'|'value';
+export type MetricDef={id:MetricId;label:string;blurb:string;verify:string};
+export type Area=SharedArea;
+export const METRICS=data.metrics as MetricDef[];
+export const AREAS=data.areas;
+export const QUIZ=data.quiz as {q:string;a:{label:string;m:MetricId};b:{label:string;m:MetricId}}[];
+export const DATE='1 Oct 2026';
+export const SOURCE='Invented demonstration dataset';
+export const getArea=(id:string)=>{const a=AREAS.find(a=>a.id===id);if(!a)throw new Error('Unknown demo locality');return a;};

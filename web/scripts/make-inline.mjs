@@ -1,0 +1,14 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {build} from 'esbuild';
+const out=process.argv[2];
+if(!out)throw Error('Supply the absolute inline fragment output path.');
+const tmp=path.resolve('.inline-build');
+await build({entryPoints:['src/main.tsx'],bundle:true,minify:true,format:'iife',platform:'browser',define:{'process.env.NODE_ENV':'"production"'},loader:{'.png':'dataurl','.svg':'dataurl'},outdir:tmp,write:true});
+const js=fs.readFileSync(path.join(tmp,'main.js'),'utf8');
+const css=fs.readFileSync(path.join(tmp,'main.css'),'utf8');
+const template=fs.readFileSync('scripts/inline-template.html','utf8');
+const fragment=template.replace('/* APP_CSS */',css).replace('/* APP_JS */',()=>js.replace(/<\/script/gi,'<\\/script'));
+if(Buffer.byteLength(fragment)>1000000)throw Error('Inline fragment exceeds 1 MB.');
+fs.writeFileSync(out,fragment);
+console.log(`Inline preview written (${Buffer.byteLength(fragment)} bytes)`);

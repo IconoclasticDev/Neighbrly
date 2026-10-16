@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.inline-build/
+.env
+.env.*
+*.log

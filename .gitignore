@@ -1,0 +1,15 @@
+**/node_modules/
+**/__pycache__/
+**/build-preview/
+**/.expo/
+**/dist/
+**/.inline-build/
+**/.env
+**/.env.*
+*.log
+*.zip
+
+**/.openai/
+**/.sites-runtime/
+**/.sites-checkout*/
+**/.venv/
