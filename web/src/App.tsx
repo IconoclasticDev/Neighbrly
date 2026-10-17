@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import L from 'leaflet';
 import { AppIcon } from './components/AppIcon';
+import { ProfilePopover } from './components/ProfilePopover';
 import wards from './mumbai-wards.json';
 import { LandingPage } from './components/LandingPage';
 import {
@@ -240,10 +241,6 @@ const titles: Record<Screen, string> = {
   saved: 'Saved reports',
   settings: 'Settings',
 };
-
-function Demo() {
-  return <span className="nb-badge">DEMO DATA</span>;
-}
 
 function Tag({ value }: { value: number | null }) {
   return <span className={'nb-tag ' + tone(value)}>{band(value)}</span>;
@@ -662,7 +659,6 @@ export default function App() {
   }
 
   const nav = [
-    ['welcome', 'Landing page', 'home'],
     ['home', 'Explore', 'explore'],
     ['compare', 'Compare', 'compare'],
     ['saved', 'Saved reports', 'bookmark'],
@@ -767,14 +763,9 @@ export default function App() {
           <header className="nb-header">
             <span>{s.screen === 'home' ? 'Your neighbourhood, understood' : titles[s.screen]}</span>
             <div>
-              <Demo />
-              <button
-                className="nb-avatar"
-                onClick={() => go('settings')}
-                aria-label="Open preferences"
-              >
-                You
-              </button>
+              
+              <ProfilePopover savedCount={s.saved.length} onSaved={()=>go('saved')} onPriorities={quiz} onSettings={()=>go('settings')}/>
+
             </div>
           </header>
 
@@ -984,7 +975,7 @@ export default function App() {
                           <h3>{localityIntel.name}</h3>
                           <p className="nb-muted nb-small">{localityIntel.localitiesSummary}</p>
                         </div>
-                        {localityIntel.demo && <Demo />}
+                        
                       </div>
 
                       <div className="nb-status-tiers" role="list" aria-label="Verification status">
@@ -1401,7 +1392,7 @@ export default function App() {
                       are not a confidence interval and exclude measurement uncertainty.
                     </p>
                     <div className="nb-asof">
-                      Illustrative evidence · 1 Oct 2026 <Demo />
+                      Illustrative evidence · 1 Oct 2026 
                     </div>
                   </section>
                   <section className="nb-summary-panel">
@@ -1527,7 +1518,7 @@ export default function App() {
                       <div>
                         <dt>Source</dt>
                         <dd>
-                          {entry.source} <Demo />
+                          {entry.source} 
                         </dd>
                       </div>
                       <div>
@@ -1878,7 +1869,7 @@ export default function App() {
                       <div className="nb-soft-card" key={x.id}>
                         <div className="nb-section-head">
                           <h2>{x.snapshot.areaName}</h2>
-                          <Demo />
+                          
                         </div>
                         <p>
                           <strong>{x.snapshot.score} / 100</strong> · {x.snapshot.used} of{' '}
