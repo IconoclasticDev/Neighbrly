@@ -1,0 +1,113 @@
+/* Shared visual language with the Neighbrly landing page. */
+#nb-product{--nb-bg:#FAF8F2;--nb-paper:#FFFFFC;--nb-text:#102F3D;--nb-muted:#53676A;--nb-border:#D8E1D4;--nb-green:#087F80;--nb-dark:#173D40;--nb-soft:#E5EFE1;--nb-amber:#C39351;--nb-amber-soft:#F5EBD5;--nb-good:#658F6E;--nb-caution:#B68B45;--nb-risk:#B85D45;max-width:1600px;min-height:100vh;font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--nb-bg)}
+#nb-product .nb-icon{display:inline-block;vertical-align:middle;flex-shrink:0;stroke:currentColor}
+#nb-product h1{font-family:Georgia,'Times New Roman',serif;font-weight:500;letter-spacing:-1.6px;font-size:clamp(31px,3.2vw,47px);line-height:1.13}
+#nb-product h1 em{color:#087F80}
+#nb-product h2{font-size:18px;font-weight:650;letter-spacing:-.5px}
+#nb-product .nb-eyebrow{font-size:9px;letter-spacing:1.7px;color:#2D6A60}
+#nb-product button{border-radius:7px}
+#nb-product .nb-sidebar{background:#FFFFFC;width:218px;padding:26px 17px 20px;border-color:#D8E1D4}
+#nb-product .nb-brand{padding:0;min-height:60px;justify-content:center;background:white;border-radius:0}
+#nb-product .nb-brand-img{width:170px;height:auto;max-width:100%}
+#nb-product .nb-workspace{background:#F3F6ED;border-color:#D9E2D1;font-size:10px;letter-spacing:.4px;margin:19px 4px 25px;padding:11px;border-radius:6px}
+#nb-product nav{gap:5px}
+#nb-product nav button{gap:11px;font-size:11px;min-height:46px;padding:12px;border-radius:6px;color:#526B68}
+#nb-product nav button.active{background:#E4EFE2;color:#1D5C50;box-shadow:3px 0 #3B806D inset}
+#nb-product nav button:hover{background:#F0F4E9}
+#nb-product nav .nb-icon{width:19px;height:19px}
+#nb-product .nb-independent{background:#173D40;color:#F6F6E9;padding:19px 16px;border:0;border-radius:9px;margin:0 3px 16px}
+#nb-product .nb-independent>.nb-icon{color:#B7D3A4;margin-bottom:12px;width:24px;height:24px}
+#nb-product .nb-independent strong{font:400 20px/1.25 Georgia,serif;max-width:none;letter-spacing:-.4px}
+#nb-product .nb-independent p{color:#C2D4C7;font-size:10px;margin:11px 0 0;line-height:1.8}
+#nb-product .nb-sidebar-bottom{padding-top:35px}
+#nb-product .nb-settings-link{font-size:10px;gap:10px}
+#nb-product .nb-header{background:#FFFFFBD9;min-height:73px;padding:18px 34px;font-size:11px;border-color:#DBE2D5}
+#nb-product .nb-avatar{background:#E9EEDC;border-color:#CFDBC2;color:#345A48;min-width:36px}
+#nb-product .nb-badge{background:#F3E9D2;color:#795E30;border:1px solid #E8D8B8;font-size:8px;letter-spacing:1px;border-radius:4px}
+#nb-product .nb-main{padding:29px 34px 45px}
+#nb-product .nb-home-heading{position:relative;isolation:isolate;overflow:hidden;padding:28px 29px 30px;margin:0 0 23px;border:1px solid #DCE2D4;border-radius:11px;min-height:223px;background:#EAF0E4}
+#nb-product .nb-home-heading:before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#F8F6EC 0%,#F8F6ECF5 44%,#F8F6EC90 68%,#F8F6EC10),url('/images/sealink-mumbai.jpg') right 50%/cover no-repeat}
+#nb-product .nb-home-heading h1{margin:14px 0 13px;max-width:570px}
+#nb-product .nb-home-heading .nb-lead{font-size:12px;color:#405C5D;max-width:420px}
+#nb-product .nb-heading-stamp{background:#FFFFF9DD;border:1px solid #CAD8C5;border-radius:7px;padding:15px;min-width:113px;color:#4F6960;font-size:12px;backdrop-filter:blur(8px)}
+#nb-product .nb-search-row{gap:13px;margin-bottom:19px}
+#nb-product .nb-search{border-radius:8px;border-color:#CCDACA;box-shadow:0 4px 12px #1A3E4307;background:#FFFFFC;min-height:49px;gap:10px}
+#nb-product .nb-search .nb-icon{color:#307968;width:19px;height:19px}
+#nb-product .nb-search input{font-size:12px}
+#nb-product .nb-priority-banner{background:#F1EBD7;border-color:#E3D8BB;border-radius:8px;padding:16px 18px;gap:13px}
+#nb-product .nb-priority-banner>.nb-icon{color:#8F713A;width:22px;height:22px}
+#nb-product .nb-priority-banner strong{font-size:11px}
+#nb-product .nb-priority-banner p{font-size:10px;line-height:1.8}
+#nb-product .nb-priority-banner>button{font-size:10px}
+#nb-product .nb-priority-done{background:#E8F0E2;border-color:#CDDDC4}
+#nb-product .nb-explore-grid{gap:23px;grid-template-columns:minmax(255px,.88fr) minmax(300px,1.35fr)}
+#nb-product .nb-section-head{margin-bottom:16px;gap:10px}
+#nb-product .nb-area{border-color:#D4DECD;background:#FFFFFC;border-radius:9px;padding:18px;box-shadow:0 3px 10px #173D4004;transition:border-color .18s,box-shadow .18s}
+#nb-product .nb-area:hover{background:#F9FBF3;border-color:#7BA58D;box-shadow:0 6px 18px #163B430A}
+#nb-product .nb-area.selected{border-color:#74A58E;box-shadow:3px 0 #4D8D73 inset}
+#nb-product .nb-letter{background:#EAF0E1;color:#396249;border:1px solid #D6E2CC;border-radius:6px;min-width:32px}
+#nb-product .nb-area-title{font-size:13px}
+#nb-product .nb-area-title small{font-size:10px;line-height:1.7}
+#nb-product .nb-area-bottom{border-top-color:#E4EADD}
+#nb-product .nb-score strong{font-size:34px;font-weight:650;color:#194D44}
+#nb-product .nb-tag{font-size:9px}
+#nb-product .nb-tag.good{background:#E4EEDB;color:#3C6544}
+#nb-product .nb-tag.caution{background:#F3E9CF;color:#7A5E29}
+#nb-product .nb-tag.risk{background:#F7E5DB;color:#8D4634}
+#nb-product .nb-map-wrap{border:1px solid #CAD7C2;border-radius:10px;background:#E5EADD}
+#nb-product .nb-map{background:#EAF0E4}
+#nb-product .nb-map-section>.nb-section-head .nb-small{font-size:10px;display:block;margin-top:5px;line-height:1.7}
+#nb-product .nb-map-availability{padding:11px 13px;background:#F1ECD9;border:1px solid #E1D8B8;border-radius:6px;font-size:11px;color:#715D32;margin-bottom:14px}
+#nb-product .nb-layer-panel{background:#F6F8EF;border-color:#D2DECA;border-radius:9px}
+#nb-product .nb-layer-btn{background:#FFFFFA;border-color:#D7E1CE;border-radius:6px}
+#nb-product .nb-layer-btn.active{background:#E4EEE0;border-color:#79A68B;color:#245D4C}
+#nb-product .nb-layer-code{background:#EAF0E1;color:#3C6B53}
+#nb-product .nb-filter-pill,#nb-product .nb-poi-pill{background:#FFFFFA;border-color:#D8E1CF;font-size:10px}
+#nb-product .nb-filter-pill.active,#nb-product .nb-poi-pill.selected{background:#DCEADB;border-color:#699D80;color:#285D49}
+#nb-product .nb-map-legend{font-size:9px;color:#586F67;gap:12px;padding:13px 0}
+#nb-product .nb-map-note{background:#F0F4E9;border-color:#D7E1CF;color:#4B6459;font-size:10px;line-height:1.8}
+#nb-product .nb-footer-note{background:#EEF2E7;border-radius:6px;padding:14px 16px;font-size:10px;display:flex;align-items:center;gap:11px;color:#536B60}
+#nb-product .nb-footer-note>.nb-icon{color:#4A816A}
+#nb-product .nb-primary{background:#173D40;border-color:#173D40;color:white;box-shadow:0 4px 10px #183F4010;border-radius:7px}
+#nb-product .nb-primary:hover{background:#255952}
+#nb-product .nb-secondary{background:#FFFFFA;border-color:#CCD9C3;border-radius:7px}
+#nb-product .nb-secondary:hover{background:#EEF4E6;border-color:#83AA8D}
+#nb-product .nb-actions button{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-size:11px}
+#nb-product .nb-soft-card,#nb-product .nb-detail,#nb-product .nb-deep,#nb-product .nb-metric-card{border-color:#D5DFCB;background:#FFFFFB;border-radius:10px}
+#nb-product .nb-soft-card{padding:24px;margin-bottom:18px}
+#nb-product .nb-score-panel{background:#E8F0E0;border-color:#CCDDC2;border-radius:11px}
+#nb-product .nb-score-line .nb-score strong{font-size:65px;font-weight:600;letter-spacing:-3px}
+#nb-product .nb-score-panel .nb-eyebrow{color:#315F4A}
+#nb-product .nb-mini-track{background:#E5EBDC}
+#nb-product .nb-mini-track>span{background:#709C79}
+#nb-product .nb-deep{padding:22px;border-top:3px solid #89A98B;box-shadow:0 3px 12px #153D4005}
+#nb-product .nb-deep:nth-child(2){border-top-color:#CAAA73}
+#nb-product .nb-deep:nth-child(3){border-top-color:#7C9D92}
+#nb-product .nb-deep-icon{display:flex;align-items:center;justify-content:center;background:#EAF1E0;color:#3B755B;width:47px;height:47px;border-radius:50%;margin-bottom:19px}
+#nb-product .nb-deep strong{font:400 22px/1.3 Georgia,serif;letter-spacing:-.4px}
+#nb-product .nb-deep p{font-size:11px;line-height:1.85}
+#nb-product .nb-empty>.nb-icon{color:#7D9D7A;margin-bottom:15px}
+#nb-product .nb-options>button{background:#FFFFFA;border-color:#CEDDC6;border-radius:8px;box-shadow:0 4px 12px #183F4005}
+#nb-product .nb-options>button:hover{background:#EDF4E5;border-color:#719E80}
+#nb-product .nb-progress{background:#DEE8D5;height:5px}
+#nb-product .nb-progress>span{background:#3A816D}
+#nb-product .nb-compare-table{background:#FFFFFA;border-color:#D3DFCA;border-radius:10px;overflow:hidden}
+#nb-product .nb-compare-table th{background:#EEF3E7}
+#nb-product .nb-modal-shade{background:#123C425E;backdrop-filter:blur(5px)}
+#nb-product .nb-modal{background:#FFFFF8;border-color:#DAE4D1;border-radius:13px;box-shadow:0 24px 70px #153C4330}
+#nb-product .nb-modal h2{font:400 29px/1.2 Georgia,serif;letter-spacing:-.8px}
+#nb-product .nb-footer{border-color:#D9E2D1;background:#F3F5EA;color:#627267;font-size:10px}
+@media(max-width:1100px){#nb-product .nb-sidebar{width:193px;padding-inline:13px}#nb-product .nb-brand-img{width:157px}#nb-product .nb-main{padding:24px}#nb-product .nb-header{padding-inline:25px}#nb-product .nb-home-heading{padding:25px 22px}#nb-product .nb-explore-grid{grid-template-columns:minmax(230px,.9fr) minmax(255px,1.15fr);gap:18px}#nb-product .nb-home-heading h1{font-size:36px;max-width:450px}#nb-product .nb-heading-stamp{display:none}}
+@media(max-width:850px){#nb-product .nb-sidebar{width:auto;min-width:0;background:#FFFFFC;padding:13px 18px}#nb-product .nb-brand{justify-content:flex-start;min-height:50px}#nb-product .nb-brand-img{width:156px}#nb-product nav{gap:4px}#nb-product nav button{font-size:10px;padding:10px 11px;min-height:44px;gap:7px}#nb-product nav .nb-icon{width:17px;height:17px}#nb-product .nb-header{padding:14px 22px;min-height:62px}#nb-product .nb-main{padding:23px 22px}#nb-product .nb-home-heading{min-height:210px}#nb-product .nb-explore-grid{grid-template-columns:1fr}#nb-product .nb-layer-toggles{grid-template-columns:repeat(3,minmax(0,1fr))}#nb-product .nb-home-heading h1{font-size:38px}}
+@media(max-width:600px){#nb-product .nb-main{padding:20px 16px 30px}#nb-product .nb-header{padding:13px 17px;font-size:10px;gap:8px}#nb-product .nb-sidebar{padding:10px 15px}#nb-product nav button{font-size:9px;padding:9px 7px;gap:5px;flex-direction:column;justify-content:center;min-height:55px}#nb-product nav button.active{box-shadow:0 -2px #3B806D inset}#nb-product .nb-home-heading{padding:23px 19px;min-height:230px;margin-bottom:20px}#nb-product .nb-home-heading:before{background:linear-gradient(90deg,#F8F6ECF7 0%,#F8F6ECE6 45%,#F8F6EC99),url('/images/sealink-mumbai.jpg') right center/cover no-repeat}#nb-product .nb-home-heading h1{font-size:34px;letter-spacing:-1.3px}#nb-product .nb-home-heading .nb-lead{font-size:11px}#nb-product .nb-search-row{gap:12px}#nb-product .nb-priority-banner{padding:15px 13px;gap:10px}#nb-product .nb-priority-banner strong{font-size:11px;line-height:1.7}#nb-product .nb-priority-banner p{font-size:10px}#nb-product .nb-priority-banner>button{font-size:10px;margin-left:31px}#nb-product .nb-priority-banner>.nb-icon{width:20px;height:20px}#nb-product .nb-area{padding:17px}#nb-product .nb-layer-toggles{grid-template-columns:repeat(2,minmax(0,1fr))}#nb-product .nb-layer-btn{padding:10px 8px}#nb-product .nb-footer-note{align-items:flex-start;padding:13px;font-size:10px;line-height:1.9}#nb-product .nb-report-title h1{font-size:31px}#nb-product .nb-actions button{font-size:10px;gap:7px;min-height:44px}#nb-product .nb-score-line .nb-score strong{font-size:57px}#nb-product .nb-soft-card{padding:20px}#nb-product .nb-modal h2{font-size:26px}#nb-product .nb-workspace{font-size:10px}}
+@media(prefers-reduced-motion:reduce){#nb-product *{transition:none!important}}
+@media(max-width:850px){
+  #nb-product .nb-layout{display:block;min-height:100vh}
+  #nb-product .nb-sidebar{width:100%;display:block;border-right:0;border-bottom:1px solid var(--nb-border)}
+  #nb-product .nb-brand{display:inline-flex;width:auto;min-height:48px}
+  #nb-product .nb-workspace,#nb-product .nb-sidebar-bottom{display:none}
+  #nb-product .nb-sidebar nav{display:flex;justify-content:space-between;gap:5px;margin-top:11px}
+  #nb-product .nb-sidebar nav button{flex:1;justify-content:center;white-space:nowrap}
+  #nb-product .nb-content{width:100%}
+}
+@media(max-width:360px){#nb-product .nb-sidebar nav button{font-size:8px;padding-inline:3px}#nb-product .nb-home-heading h1{font-size:30px}#nb-product .nb-header{font-size:9px;padding-inline:16px}#nb-product .nb-badge{font-size:7px;letter-spacing:.5px}}

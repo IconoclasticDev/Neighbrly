@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import L from 'leaflet';
-import logoUrl from './logo.png';
+import { AppIcon } from './components/AppIcon';
 import wards from './mumbai-wards.json';
 import { LandingPage } from './components/LandingPage';
 import {
@@ -19,10 +19,8 @@ import {
   Weights,
   BasemapStyleId,
   DEFAULT_BASEMAP_STYLE,
-  CARTO_BASEMAP_STYLES,
   CARTO_OSM_ATTRIBUTION,
   BOUNDARY_ATTRIBUTION,
-  inspectCartoCredential,
   buildCartoTileUrl,
   MapLayerId,
   EnabledLayers,
@@ -40,6 +38,7 @@ import {
 } from '../shared/core';
 import './style.css';
 import 'leaflet/dist/leaflet.css';
+import './product-theme.css';
 
 type Screen =
   | 'welcome'
@@ -189,7 +188,7 @@ function validState(raw: any): Model {
             )
           ) as Record<string, boolean>)
         : {},
-    device: raw.device === 'phone' ? 'phone' : 'web',
+    device: 'web',
     correction: typeof raw.correction === 'string' ? raw.correction.slice(0, 1200) : '',
     metric: METRICS.some((m) => m.id === raw.metric) ? raw.metric : 'air',
     pair:
@@ -514,7 +513,6 @@ export default function App() {
   const [showAdvancedLayers, setShowAdvancedLayers] = useState(false);
 
   const rawCartoKey = getEnvCartoKey();
-  const cartoCred = inspectCartoCredential(rawCartoKey);
 
   const area = AREAS.find((a) => a.id === s.area)!;
   const stats = score(area, s.weights);
@@ -664,11 +662,11 @@ export default function App() {
   }
 
   const nav = [
-    ['welcome', 'Landing page', '🏠'],
-    ['home', 'Explore', '🧭'],
-    ['compare', 'Compare', '⇄'],
-    ['saved', 'Saved reports', '♡'],
-    ['quiz', 'My priorities', '☷'],
+    ['welcome', 'Landing page', 'home'],
+    ['home', 'Explore', 'explore'],
+    ['compare', 'Compare', 'compare'],
+    ['saved', 'Saved reports', 'bookmark'],
+    ['quiz', 'My priorities', 'priorities'],
   ] as const;
 
   const choices = (value: string, onChange: (v: string) => void) => (
@@ -735,25 +733,11 @@ export default function App() {
   }
 
   return (
-    <div id="nb-product" className={'nb-app ' + (s.device === 'phone' ? 'nb-phone' : '')}>
-      <div className="nb-preview-bar">
-        <span>
-          INTERACTIVE PREVIEW <span className="nb-preview-dot">·</span> v0.1
-        </span>
-        <div className="nb-device-switch" aria-label="Preview size">
-          <button aria-pressed={s.device === 'web'} onClick={() => update({ device: 'web' })}>
-            Web
-          </button>
-          <button aria-pressed={s.device === 'phone'} onClick={() => update({ device: 'phone' })}>
-            Android layout
-          </button>
-        </div>
-      </div>
-
+    <div id="nb-product" className="nb-app">
       <div className="nb-layout">
         <aside className="nb-sidebar">
           <button className="nb-brand" onClick={() => go('welcome')} aria-label="Neighbrly Home">
-            <img src={logoUrl} alt="Neighbrly" className="nb-brand-img" width="126" height="36" />
+            <img src="/brand/neighbrly-logo.png" alt="Neighbrly" className="nb-brand-img" width="126" height="36" />
           </button>
           <div className="nb-workspace">
             <span className="nb-status-dot" /> Mumbai pilot <span>⌄</span>
@@ -766,7 +750,7 @@ export default function App() {
                 aria-current={s.screen === id ? 'page' : undefined}
                 onClick={() => (id === 'quiz' ? quiz() : go(id))}
               >
-                <span aria-hidden="true">{icon}</span>
+                <AppIcon name={icon}/>
                 {label}
                 {id === 'saved' && s.saved.length > 0 && <em>{s.saved.length}</em>}
               </button>
@@ -774,12 +758,12 @@ export default function App() {
           </nav>
           <div className="nb-sidebar-bottom">
             <div className="nb-independent">
-              <span>✳</span>
+              <AppIcon name="shield"/>
               <strong>Clarity, without the commission.</strong>
               <p>No builder or broker input in scores.</p>
             </div>
             <button className="nb-settings-link" onClick={() => go('settings')}>
-              ⚙ <span>Settings & data</span>
+              <AppIcon name="settings"/> <span>Settings & data</span>
             </button>
           </div>
         </aside>
@@ -864,7 +848,7 @@ export default function App() {
 
                 <div className="nb-search-row">
                   <label className="nb-search">
-                    <span aria-hidden="true">⌕</span>
+                    <AppIcon name="search"/>
                     <input
                       placeholder="Search demo localities A–C, Mumbai wards (Chembur, Powai, Dadar...) or POIs"
                       aria-label="Search demo localities, wards and facilities"
@@ -885,14 +869,14 @@ export default function App() {
                       value={s.selectedTarget}
                       onChange={(e) => handleSelectTarget(e.target.value, false)}
                     >
-                      <optgroup label="Demo Report Localities (7-Metric Engine)">
+                      <optgroup label="Sample neighbourhood reports">
                         {AREAS.map((a) => (
                           <option key={a.id} value={a.id}>
                             {a.name} ({a.tagline})
                           </option>
                         ))}
                       </optgroup>
-                      <optgroup label="24 BMC Administrative Wards (Geometry & OSM POIs)">
+                      <optgroup label="Mumbai administrative wards">
                         {MUMBAI_WARDS_META.map((w) => (
                           <option key={w.code} value={w.code}>
                             {w.title}
@@ -939,7 +923,7 @@ export default function App() {
 
                 {!s.quizDone ? (
                   <div className="nb-priority-banner">
-                    <span className="nb-priority-symbol">☷</span>
+                    <AppIcon name="priorities" size={24}/>
                     <div>
                       <strong>
                         A good neighbourhood means something different to everyone.
@@ -950,7 +934,7 @@ export default function App() {
                   </div>
                 ) : (
                   <div className="nb-priority-banner nb-priority-done">
-                    <span>✓</span>
+                    <AppIcon name="check"/>
                     <div>
                       <strong>These reports reflect your priorities.</strong>
                       <p>
@@ -1094,45 +1078,11 @@ export default function App() {
                       <div>
                         <h2>Around Mumbai</h2>
                         <span className="nb-muted nb-small">
-                          OpenStreetMap layers & CARTO basemap integration
+                          Connections, everyday essentials and local context
                         </span>
                       </div>
-                      <div
-                        className="nb-basemap-switch"
-                        data-testid="basemap-selector"
-                        role="group"
-                        aria-label="Basemap style selector"
-                      >
-                        {CARTO_BASEMAP_STYLES.map((style) => (
-                          <button
-                            key={style.id}
-                            aria-pressed={s.basemap === style.id}
-                            onClick={() => update({ basemap: style.id })}
-                            title={style.description}
-                          >
-                            {style.shortLabel}
-                          </button>
-                        ))}
-                      </div>
                     </div>
-
-                    {/* Basemap Credential & Offline Fallback Status Banner */}
-                    <div
-                      className={
-                        'nb-basemap-status ' +
-                        (cartoCred.compatible && tileStatus !== 'error' ? 'active' : 'fallback')
-                      }
-                      data-testid="basemap-status-bar"
-                    >
-                      <strong>{cartoCred.providerLabel}:</strong>{' '}
-                      <span>
-                        {s.basemap === 'local'
-                          ? 'Rendering bundled Mumbai administrative boundaries and local OpenStreetMap overlays with zero external tile requests.'
-                          : tileStatus === 'error'
-                          ? 'CARTO tile network request failed or offline. Preserving bundled Mumbai boundaries and local report functionality.'
-                          : cartoCred.diagnostic}
-                      </span>
-                    </div>
+                    {tileStatus === 'error' && <p className="nb-map-availability" role="status">Map imagery is temporarily unavailable. Locality markers and saved information remain available.</p>}
 
                     <AppMap
                       selectedTarget={s.selectedTarget}
@@ -1352,7 +1302,7 @@ export default function App() {
                 </div>
 
                 <div className="nb-footer-note">
-                  <span>✳</span> Every score is a starting point for questions, not a property
+                  <AppIcon name="shield"/> Every score is a starting point for questions, not a property
                   recommendation.
                 </div>
               </>
@@ -1420,10 +1370,10 @@ export default function App() {
                       className="nb-secondary"
                       onClick={() => go('home', area.id, true)}
                     >
-                      View on neighbourhood map 🗺
+                      <AppIcon name="map" size={18}/> View on neighbourhood map
                     </button>
                     <button className="nb-secondary" onClick={toggleSave}>
-                      {s.saved.some((x) => x.id === area.id) ? '♥ Saved' : '♡ Save report'}
+                      <AppIcon name="bookmark" size={18}/>{s.saved.some((x) => x.id === area.id) ? 'Saved' : 'Save report'}
                     </button>
                     <button className="nb-primary" onClick={share}>
                       Share ↗
@@ -1534,16 +1484,16 @@ export default function App() {
                 </div>
                 <div className="nb-deep-grid">
                   {[
-                    ['price', 'Price Reality Check', 'An asking price needs context.', '₹'],
-                    ['promoter', 'Promoter record', 'Look beyond a single project.', '▦'],
-                    ['checklist', 'Your visit checklist', 'Turn gaps into good questions.', '✓'],
+                    ['price', 'Price Reality Check', 'An asking price needs context.', 'price'],
+                    ['promoter', 'Promoter record', 'Look beyond a single project.', 'building'],
+                    ['checklist', 'Your visit checklist', 'Turn gaps into good questions.', 'checklist'],
                   ].map(([id, title, sub, icon]) => (
                     <button
                       className="nb-deep"
                       key={id}
                       onClick={() => go(id as Screen)}
                     >
-                      <span className="nb-deep-icon">{icon}</span>
+                      <span className="nb-deep-icon"><AppIcon name={icon} size={24}/></span>
                       <strong>{title}</strong>
                       <p>{sub}</p>
                       <span>Explore →</span>
@@ -1921,7 +1871,7 @@ export default function App() {
                 <p className="nb-lead">Saved snapshots stay on this device.</p>
                 {s.saved.length === 0 ? (
                   <div className="nb-empty">
-                    <span className="nb-empty-symbol">♡</span>
+                    <AppIcon name="bookmark" size={35}/>
                     <h2>No saved reports yet</h2>
                     <p>Explore a locality and save its report to start your shortlist.</p>
                     <button className="nb-primary" onClick={() => go('home')}>
@@ -1989,14 +1939,6 @@ export default function App() {
                   <button className="nb-secondary" onClick={quiz}>
                     Retake the 7-question quiz
                   </button>
-                </div>
-                <div className="nb-soft-card">
-                  <h2>Map & CARTO basemap status</h2>
-                  <p>
-                    <strong>Provider state:</strong> {cartoCred.providerLabel}
-                  </p>
-                  <p>{cartoCred.diagnostic}</p>
-                  <p>{cartoCred.securityNote}</p>
                 </div>
                 <div className="nb-soft-card">
                   <h2>Language</h2>
