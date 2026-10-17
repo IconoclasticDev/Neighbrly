@@ -206,7 +206,7 @@ function load(): Model {
   try {
     const host = window.openai?.widgetState?.privateContent;
     const saved = host ? validState(host) : validState(JSON.parse(localStorage.getItem('neighbrly.preview.v2') || 'null'));
-    return { ...saved, screen: window.location.hash === '#explore' ? 'home' : 'welcome' };
+    return { ...saved, screen: 'welcome' };
   } catch {
     return { ...initial };
   }
@@ -523,9 +523,12 @@ export default function App() {
   const searchEntities = search.trim() ? searchMapEntities(search) : [];
 
   useEffect(() => {
+    if (window.location.hash === '#explore') {
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
     const handler = (e: any) => {
       if (e.detail?.globals?.widgetState?.privateContent)
-        setS(validState(e.detail.globals.widgetState.privateContent));
+        setS(current => ({ ...validState(e.detail.globals.widgetState.privateContent), screen: current.screen }));
     };
     window.addEventListener('openai:set_globals', handler);
     return () => window.removeEventListener('openai:set_globals', handler);
