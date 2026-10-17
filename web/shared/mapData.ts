@@ -1546,7 +1546,7 @@ export function searchMapEntities(query: string): MapSearchResult[] {
         id: w.code,
         kind: 'bmc_ward',
         title: w.title,
-        subtitle: `${w.localities} · ${w.demoAreaId ? `Includes Demo Locality ${w.demoAreaId.toUpperCase()}` : 'Boundary & POIs only (no report yet)'}`,
+        subtitle: `${w.localities} · ${w.demoAreaId ? `Includes ${AREAS.find(a => a.id === w.demoAreaId)?.name} sample report` : 'Boundary & POIs only (no report yet)'}`,
         wardCode: w.code,
         demoAreaId: w.demoAreaId,
         lat: w.lat,

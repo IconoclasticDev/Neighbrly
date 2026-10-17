@@ -173,7 +173,7 @@ function validState(raw: any): Model {
             ...x,
             snapshot:
               x.snapshot.methodVersion === 'demo-bounds-v2'
-                ? x.snapshot
+                ? { ...x.snapshot, areaName: AREAS.find((a) => a.id === x.id)!.name }
                 : report(AREAS.find((a) => a.id === x.id)!, weights),
           }))
       : [],
@@ -347,7 +347,7 @@ function AppMap({
     tileLayerRef.current = tl;
   }, [basemap, cartoKey]);
 
-  // Keep ward geometry invisible over OpenStreetMap while rendering locality pins A, B, C
+  // Keep ward geometry invisible over OpenStreetMap while rendering neighbourhood report markers
   useEffect(() => {
     const m = mapRef.current;
     const group = boundaryGroupRef.current;
@@ -367,7 +367,7 @@ function AppMap({
       }),
     }).addTo(group);
 
-    // Render Demo Localities A, B, C pins on the OpenStreetMap Mumbai view
+    // Render named neighbourhood pins on the OpenStreetMap Mumbai view
     for (const a of AREAS) {
       const isSelected = selectedTarget === a.id;
       const marker = L.marker([a.lat, a.lng], {
@@ -757,11 +757,6 @@ export default function App() {
             ))}
           </nav>
           <div className="nb-sidebar-bottom">
-            <div className="nb-independent">
-              <AppIcon name="shield"/>
-              <strong>Clarity, without the commission.</strong>
-              <p>No builder or broker input in scores.</p>
-            </div>
             <button className="nb-settings-link" onClick={() => go('settings')}>
               <AppIcon name="settings"/> <span>Settings & data</span>
             </button>
@@ -850,7 +845,7 @@ export default function App() {
                   <label className="nb-search">
                     <AppIcon name="search"/>
                     <input
-                      placeholder="Search demo localities A–C, Mumbai wards (Chembur, Powai, Dadar...) or POIs"
+                      placeholder="Search Chembur, Powai, Dadar, Mumbai wards or nearby places"
                       aria-label="Search demo localities, wards and facilities"
                       value={search}
                       onChange={(e) => setSearch(e.target.value)}
@@ -965,7 +960,7 @@ export default function App() {
                         <div className="nb-empty">
                           <h3>No demo locality found</h3>
                           <p>
-                            Try A, B or C, or pick a matched Mumbai ward/facility on the map.
+                            Try Chembur, Powai or Dadar, or pick a matched Mumbai ward or facility.
                             Address search will follow verified data coverage.
                           </p>
                           <button onClick={() => setSearch('')}>Show all areas</button>
@@ -1064,8 +1059,7 @@ export default function App() {
                                 handleSelectTarget(localityIntel.nearestDemoId, false)
                               }
                             >
-                              Preview nearest demo locality (
-                              {localityIntel.nearestDemoId.toUpperCase()}) →
+                              Preview sample report: {AREAS.find((a) => a.id === localityIntel.nearestDemoId)?.name} →
                             </button>
                           </div>
                         </div>
@@ -1095,7 +1089,7 @@ export default function App() {
                       onSelectPoi={(poiId) => update({ selectedPoiId: poiId })}
                       onOutside={() =>
                         setNotice(
-                          'Outside demo report radius. Select a ward boundary, facility marker, or demo marker A, B or C.'
+                          'Outside sample report coverage. Select Chembur, Powai, Dadar or a mapped facility.'
                         )
                       }
                       onTileStatusChange={setTileStatus}
@@ -1278,7 +1272,7 @@ export default function App() {
                     {/* Map Legend */}
                     <div className="nb-map-legend" aria-label="Map legend">
                       <span>
-                        <i className="nb-leg-demo" /> Demo report locality (A–C)
+                        <i className="nb-leg-demo" /> Sample neighbourhood report
                       </span>
                       <span>
                         <i className="nb-leg-ward" /> BMC administrative ward (boundary only)
@@ -1951,7 +1945,7 @@ export default function App() {
                   <h2>About this data</h2>
                   <p>
                     Every score, price and promoter in this preview is invented. Evidence date: 1
-                    October 2026. The Mumbai administrative outline and OpenStreetMap points of
+                    October 2026. Neighbourhood names and map positions refer to real places. The Mumbai administrative outline and OpenStreetMap points of
                     interest are sourced geographic context; they do not verify any report claim.
                   </p>
                   <p>

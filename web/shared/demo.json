@@ -125,7 +125,7 @@
   "areas": [
     {
       "id": "a",
-      "name": "Demo Locality A",
+      "name": "Chembur",
       "tagline": "Eastern suburb, near rail",
       "entries": {
         "air": {
@@ -209,11 +209,11 @@
       },
       "lat": 19.064,
       "lng": 72.897,
-      "letter": "A"
+      "letter": "C"
     },
     {
       "id": "b",
-      "name": "Demo Locality B",
+      "name": "Powai",
       "tagline": "Lakeside, newer towers",
       "entries": {
         "air": {
@@ -302,11 +302,11 @@
       },
       "lat": 19.118,
       "lng": 72.905,
-      "letter": "B"
+      "letter": "P"
     },
     {
       "id": "c",
-      "name": "Demo Locality C",
+      "name": "Dadar",
       "tagline": "Old neighbourhood, central",
       "entries": {
         "air": {
@@ -389,7 +389,7 @@
       "promoter": null,
       "lat": 19.021,
       "lng": 72.852,
-      "letter": "C"
+      "letter": "D"
     }
   ]
 }
